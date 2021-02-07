@@ -15,3 +15,29 @@
  *     73    79    83    89    97
  * 时间限制：500ms内存限制：32000kb
  **/
+#include<stdio.h>
+
+/**
+ * 判断m是否为素数，当m为素数时返回1，否则返回0
+ **/
+int prime(int m) {
+    if (m <= 1) return 0;
+    for (int i=m-1; i>1; i--) {
+        if (m%i == 0) return 0;
+    }
+    return 1;
+}
+
+int main()
+{
+    int i = 0;
+    for (int m=0; m<100; m++) {
+        if (prime(m) == 1) {
+            if (i%10 == 0) printf("\n");
+            printf("%6d", m);
+            i++;
+        }
+    }
+    printf("\n");
+    return 0;
+}

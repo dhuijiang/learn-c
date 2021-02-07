@@ -19,3 +19,21 @@
  * 输出样例：1389537
  * 时间限制：500ms内存限制：32000kb
  **/
+#include<stdio.h>
+
+/**
+ * 爬楼梯
+ **/
+int palouti(int n) {
+    if (n<=1) return 1;
+    if (n==2) return 2;
+    if (n==3) return 4;
+    return palouti(n-1) + palouti(n-2) + palouti(n-3);
+}
+
+int main() {
+    int n;
+    scanf("%d", &n);
+    printf("%d\n", palouti(n));
+    return 0;
+}

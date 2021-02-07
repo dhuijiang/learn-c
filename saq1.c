@@ -18,7 +18,46 @@
  **/
 #include<stdio.h>
 
+/**
+ * 求两个数的最大公约数
+ **/
+int gcd(int a, int b) {
+    int c, i;
+    if (a<0) a = -a;
+    if (b<0) b = -b;
+    c = a;
+    if (c>b) c = b;
+    for (i=c; i>0; i--) {
+        if (a%i==0 && b%i==0) break;
+    }
+    return i;
+}
+
+/**
+ * 求两个数的最小公倍数
+ **/
+int lcm(int a, int b) {
+    int c, i, minus = 0;
+    if (a<0) {
+        a = -a;
+        minus = -1;
+    }
+    if (b<0) {
+        b = -b;
+        minus = -1;
+    }
+    c = a;
+    if (c<b) c = b;
+    for (i=c; i>0; i++) {
+        if (i%a==0 && i%b==0) break;
+    }
+    if (minus != 0) i = -i;
+    return i;
+}
+
 int main() {
-    printf("hello VSCode!\n");
+    int a, b;
+    scanf("%d,%d", &a, &b);
+    printf("%d,%d\n", gcd(a,b), lcm(a,b));
     return 0;
 }
